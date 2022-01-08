@@ -2,7 +2,7 @@
 title: "Baby Name Trends"
 output: github_document
 params: 
-  name: "Aimee"
+  name: "Amy"
   from: 1900
   to: 1950 
 ---
@@ -35,10 +35,12 @@ library(ggplot2)
 ```
 
 
+
 ```{r trend, fig.cap= "A trend chart", tidy=FALSE}
+laby = params$name
 ggplot(data=filtered_names, aes(x=year, y=prop)) + 
   geom_line(aes(colour=sex)) + 
   xlab('Year') + 
-  ylab('Prop. of Babies Named Aimee')
+  ylab(bquote(Proportion~of~babies~named~.(params$name)))
 ```
 
